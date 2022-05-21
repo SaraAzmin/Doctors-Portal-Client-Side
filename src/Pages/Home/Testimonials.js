@@ -32,7 +32,7 @@ const Testimonials = () => {
     ];
 
     return (
-        <div className='my-16 md:my-24'>
+        <div className='my-16 md:my-24 px-8 md:px-12'>
             <div className='flex justify-between'>
                 <div>
                     <h4 className="text-xl text-secondary font-bold mb-3">Testimonials</h4>
