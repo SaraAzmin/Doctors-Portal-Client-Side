@@ -5,7 +5,7 @@ const Loading = () => {
         <div>
             <div className="flex justify-center items-center h-screen" >
 
-                <button class="btn loading text-white btn-secondary">loading</button>
+                <button className="btn loading text-white btn-secondary">loading</button>
 
             </div>
         </div>
