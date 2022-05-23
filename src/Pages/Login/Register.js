@@ -31,6 +31,10 @@ const Register = () => {
         registerError = <p className='text-red-600'>{error?.message || errorGoogle.message} </p>
     }
 
+    if (token) {
+        navigate('/appointment');
+    }
+
     const onSubmit = async (data) => {
         console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password);

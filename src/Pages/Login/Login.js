@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
 
@@ -14,8 +15,15 @@ const Login = () => {
     let signinError;
     const navigate = useNavigate();
     const location = useLocation();
+    const [token] = useToken(user || userGoogle);
 
     let from = location.state?.from?.pathname || "/";
+
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
 
 
     if (user || userGoogle) {
@@ -87,9 +95,7 @@ const Login = () => {
 
                             </label>
                         </div>
-
                         <input className='btn w-full max-w-xs text-white btn-secondary' type="submit" value="Login" />
-
                         {signinError}
                     </form>
                     <p><small>New to Doctors Portal? <Link className='text-secondary font-semibold' to="/register">Create New Account</Link></small></p>

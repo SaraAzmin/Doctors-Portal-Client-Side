@@ -10,8 +10,8 @@ const Navbar = () => {
 
     const logout = () => {
         signOut(auth);
+        localStorage.getItem('accessToken');
     };
-
 
     const menuitems = <>
         <li><Link to='/home'>Home</Link></li>
