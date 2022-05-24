@@ -9,17 +9,18 @@ const Dashboard = () => {
                 <h2 className='text-3xl font-semibold text-secondary text-center py-5 uppercase'>Welcome to your Dashboard</h2>
                 <Outlet></Outlet>
             </div>
-            <div class="drawer-side">
-                <label htmlFor="dashboard-sidebar" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
+            <div className="drawer-side">
+                <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
+                <ul className="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to="/dashboard">My Appointments</Link></li>
                     <li><Link to="/dashboard/review">My Reviews</Link></li>
                     <li><Link to="/dashboard/history">My History</Link></li>
+                    <li><Link to="/dashboard/users">All Users</Link></li>
                 </ul>
 
-            </div>
-        </div>
+            </div >
+        </div >
 
     );
 };
