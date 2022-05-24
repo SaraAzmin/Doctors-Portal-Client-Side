@@ -61,7 +61,7 @@ const AddDoctor = () => {
 
     return (
         <>
-            <h2 className='py-5 text-xl text-secondary text-center'>Add a Doctor</h2>
+            <h2 className='pb-5 text-xl text-secondary text-center'>Add a Doctor</h2>
             <div className='flex justify-center'>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -109,7 +109,7 @@ const AddDoctor = () => {
                         <label className="label">
                             <span className="label-text">Specialization</span>
                         </label>
-                        <select {...register('speciality')} class="select select-bordered w-full max-w-xs">
+                        <select {...register('speciality')} className="select select-bordered w-full max-w-xs">
                             {
                                 services.map(service => <option key={service._id} value={service.name}>{service.name}</option>)
                             }
