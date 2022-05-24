@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DoctorRow = ({ doctor, index }) => {
+const DoctorRow = ({ doctor, index, setDeletingDoctor }) => {
 
     const handleDelete = email => {
 
@@ -17,7 +17,7 @@ const DoctorRow = ({ doctor, index }) => {
                 </div>
             </div></td>
             <td>{doctor.speciality}</td>
-            <td><button className="btn btn-xs btn-primary" onClick={handleDelete}>Delete Doctor</button></td>
+            <td><label onClick={() => setDeletingDoctor(doctor)} for="delete-confirm-modal" class="btn btn-xs btn-error">Delete</label></td>
         </tr>
     );
 };
