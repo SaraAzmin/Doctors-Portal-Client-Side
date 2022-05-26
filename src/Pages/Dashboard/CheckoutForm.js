@@ -15,7 +15,7 @@ const CheckoutForm = ({ appointment }) => {
     const { _id, price, patiant, patiantName } = appointment;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/create-payment-intent`, {
+        fetch(`https://hidden-dusk-12600.herokuapp.com/create-payment-intent`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -78,8 +78,25 @@ const CheckoutForm = ({ appointment }) => {
             setTransactionId(paymentIntent.id);
             console.log(paymentIntent);
             setSuccess('Your payment is successful!');
-        }
 
+            //send payment to database
+            const payment = {
+                appointment: _id,
+                transactionId: paymentIntent.id
+            }
+            fetch(`https://hidden-dusk-12600.herokuapp.com/booking/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+            }).then(res => res.json())
+                .then(data => {
+                    setProcessing(false);
+                    console.log(data);
+                })
+        }
     }
 
 
