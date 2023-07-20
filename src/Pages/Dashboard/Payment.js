@@ -12,7 +12,7 @@ const stripePromise = loadStripe('pk_test_51L3Q5MChR64wzhkKSbLssex9K6cpixSCzi3xl
 const Payment = () => {
 
     const { id } = useParams();
-    const url = `https://hidden-dusk-12600.herokuapp.com/booking/${id}`;
+    const url = `https://doctors-portal-server-side-seven.vercel.app/booking/${id}`;
 
     const { data: appointment, isLoading } = useQuery('booking', () => fetch(url).then(res => res.json()));
 

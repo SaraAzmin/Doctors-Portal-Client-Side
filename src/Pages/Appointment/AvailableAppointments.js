@@ -13,12 +13,12 @@ const AvailableAppointments = ({ date, setDate }) => {
 
     const formattedDate = format(date, 'PP');
     const { data: services, isLoading, refetch } = useQuery(['available', formattedDate], () =>
-        fetch(`https://hidden-dusk-12600.herokuapp.com/available?date=${formattedDate}`).then(res =>
+        fetch(`https://doctors-portal-server-side-seven.vercel.app/available?date=${formattedDate}`).then(res =>
             res.json()
         ))
 
     // useEffect(() => {
-    //     fetch(`https://hidden-dusk-12600.herokuapp.com/available?date=${formattedDate}`)
+    //     fetch(`https://doctors-portal-server-side-seven.vercel.app/available?date=${formattedDate}`)
     //         .then(res => res.json())
     //         .then(data => setServices(data))
     // }, [])

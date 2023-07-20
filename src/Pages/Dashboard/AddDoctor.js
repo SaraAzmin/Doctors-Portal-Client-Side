@@ -8,7 +8,7 @@ const AddDoctor = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const { data: services, isLoading } = useQuery('services', () => fetch('https://hidden-dusk-12600.herokuapp.com/service').then(res => res.json()));
+    const { data: services, isLoading } = useQuery('services', () => fetch('https://doctors-portal-server-side-seven.vercel.app/service').then(res => res.json()));
 
     const imgStorageKey = '6a62c97ccc2acdf77b6c4116444b1e4f';
 
@@ -37,7 +37,7 @@ const AddDoctor = () => {
                     }
 
                     //send to database
-                    fetch('https://hidden-dusk-12600.herokuapp.com/doctor', {
+                    fetch('https://doctors-portal-server-side-seven.vercel.app/doctor', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

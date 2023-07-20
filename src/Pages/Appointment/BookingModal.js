@@ -27,7 +27,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
             phone: e.target.phone.value
         }
 
-        fetch('https://hidden-dusk-12600.herokuapp.com/booking', {
+        fetch('https://doctors-portal-server-side-seven.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
